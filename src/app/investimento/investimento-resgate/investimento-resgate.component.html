@@ -1,0 +1,40 @@
+<div class="container-fluid gray">
+  <div class="col-md-5">
+    <h6 class="title1 mt-3">RESGATE</h6>
+
+    <div class="card shadow">
+      <table class="table table-hover mt-3 text-center">
+        <thead>
+        <tr>
+          <th>AÇÃO</th>
+          <th>SALDO ACUMULADO</th>
+          <th>VALOR A RESGATAR</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let acao of investimento?.acoes; let i = index">
+          <td>{{acao.nome}}</td>
+          <td>{{ (investimento.saldoTotal * acao.percentual / 100) | currency: 'BRL' }}</td>
+          <mat-form-field class="col-md-12">
+            <input matInput type="text" [(ngModel)]="resgate[i]" required
+                   appearance="outline">
+            <!--            <mat-error *ngIf="marketplaceConfigForm?.controls.taxaComissao.invalid">Campo obrigatório</mat-error>-->
+          </mat-form-field>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card shadow">
+      <p>
+        Valor total do resgate: {{calculoResgate() | currency: 'BRL' }}
+      </p>
+
+    </div>
+
+    <div class="">
+      <button class="">CANCELAR</button>
+      <button class="float-right">CONFIRMAR RESGATE</button>
+    </div>
+  </div>
+</div>
