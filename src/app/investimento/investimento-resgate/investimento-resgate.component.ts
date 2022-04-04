@@ -2,7 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from "../../shared/services/data.service";
 import {Investimento} from "../../shared/interfaces/investimento";
 import {InvestimentoService} from "../../shared/services/investimento.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ModalResgateComponent} from "../modal-resgate/modal-resgate.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-investimento-resgate',
@@ -16,10 +18,14 @@ export class InvestimentoResgateComponent implements OnInit {
   investimento: Investimento;
   resgate: Array<number> = [];
 
+  saldosAcumulados: Array<number> = [];
+
   params: any;
 
   constructor(private service: InvestimentoService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private dialog: MatDialog,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -42,6 +48,7 @@ export class InvestimentoResgateComponent implements OnInit {
         }
       }
 
+      this.calculaSaldosAcumulados();
     })
   }
 
@@ -53,5 +60,36 @@ export class InvestimentoResgateComponent implements OnInit {
     })
 
     return soma;
+  }
+
+  temErroResgate(ind: number): boolean {
+    return this.resgate[ind] > this.saldosAcumulados[ind];
+  }
+
+  calculaSaldosAcumulados() {
+    this.saldosAcumulados = [];
+    this.investimento.acoes.forEach(acao => {
+      const saldoAcumulado = this.investimento.saldoTotal * acao.percentual / 100;
+      this.saldosAcumulados.push(saldoAcumulado);
+    })
+  }
+
+  abrirModal(): void {
+    const dialogRef = this.dialog.open(ModalResgateComponent, {
+      data: {
+        investimento: this.investimento,
+        saldosAcumulados: this.saldosAcumulados,
+        resgate: this.resgate
+      }
+    });
+    dialogRef.afterClosed().subscribe((response: any) => {
+      if (response.sucesso) {
+        this.voltarParaListagem();
+      }
+    });
+  }
+
+  voltarParaListagem(): void {
+    this.router.navigate(['/investimento/listagem']);
   }
 }

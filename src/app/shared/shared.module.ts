@@ -4,16 +4,16 @@ import {RouterModule} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxCurrencyModule} from "ngx-currency";
 
-import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import {MatDialogModule} from "@angular/material/dialog";
 
 export const modules = [
   RouterModule,
   ReactiveFormsModule,
   FormsModule,
   NgxCurrencyModule,
-  MatInputModule,
-  MatIconModule
+  MatIconModule,
+  MatDialogModule
 ];
 
 @NgModule({
