@@ -20,9 +20,9 @@ Serão avaliados:
 **Obs.:** Os layouts dos protótipos são só ilustrativos, podem usar os frameworks de estilo de sua preferência. (Ex.: Bootstrap)
 
 ### Protótipos
-[01 - Lista de investimentos](https://github.com/fernandolopes92/coopersystem-desafio/blob/main/prototipos/01%20-%20Lista%20de%20investimentos.png)   
-[02 - Resgate personalizado](https://github.com/fernandolopes92/coopersystem-desafio/blob/main/prototipos/02%20-%20Resgate.png)   
-[03 - Modal de confirmação](https://github.com/fernandolopes92/coopersystem-desafio/blob/main/prototipos/03%20-%20Modal%20sucesso.png)   
+[01 - Lista de investimentos](https://github.com/fernandolopes92/coopersystem-desafio/blob/main/prototipos/01%20-%20Lista%20de%20investimentos.png?raw=true)   
+[02 - Resgate personalizado](https://github.com/fernandolopes92/coopersystem-desafio/blob/main/prototipos/02%20-%20Resgate.png?raw=true)   
+[03 - Modal de confirmação](https://github.com/fernandolopes92/coopersystem-desafio/blob/main/prototipos/03%20-%20Modal%20sucesso.png?raw=true)   
 [04 - Modal de erro](https://github.com/fernandolopes92/coopersystem-desafio/blob/main/prototipos/04%20-%20Modal%20erro.png?raw=true)
 
 
